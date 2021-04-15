@@ -1,5 +1,3 @@
-const list = document.querySelector('#ingredients');
-
 const ingredients = [
   'Картошка',
   'Грибы',
@@ -8,8 +6,16 @@ const ingredients = [
   'Зелень',
   'Приправы',
 ];
+const list = document.querySelector('#ingredients');
 
-const markup = ingredients.reduce(
-    (string, item) => string + '<li>${item}</li>', ""
-);
-console.log(markup);
+
+const listIngredients = ingredients.map( ingredient => {
+  const ingredientEl = document.createElement("li");
+  ingredientEl.textContent = ingredient;
+  
+  return ingredientEl
+})
+
+list.append(...listIngredients);
+
+console.log(list);
