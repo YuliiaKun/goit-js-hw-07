@@ -16,16 +16,15 @@ const images = [
   },
 ];
 
+const gallery = document.querySelector('#gallery');
 
-const ingredientEl = document.createElement('li');
+const makeGalleryList = ({ url, alt }) => {
+    return `<li class="gallery-list"><img class ="image" src="${url}" alt="${alt}"></img></li>`;
+};
 
-const imgEl = document.createElement('img');
-imgEl.classList.add('img-ingredients');
-imgEl.textContent = 'Hi man';
+const imgList = images.map(makeGalleryList).join('');
 
-ingredientEl.appendChild(imgEl);
+gallery.insertAdjacentHTML("afterbegin", imgList);
 
-console.log(ingredientEl);
-const ingredients = document.querySelector('#ingredients');
+console.log(gallery);
 
-ingredients.appendChild(ingredientEl);
